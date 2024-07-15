@@ -1,0 +1,220 @@
+# Set mod variable to super key
+set $mod Mod4
+
+# Font
+font pango:0xProto Nerd Font Mono 10
+
+# Set common scripts to vars
+
+# Drag floating windows
+floating_modifier $mod
+
+# Turn borders off
+for_window [class="^.*"] border pixel 0
+
+# Change gap size
+gaps outer 5
+gaps inner 24
+
+# Start a fish terminal emulator instance
+# bindsym $mod+Return exec fish
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Kill focused window
+bindsym $mod+Shift+Q kill
+
+# Start rofi with appmenu and tabmenu
+bindsym $mod+space exec $HOME/scripts/rofi/launcher.sh
+bindsym $mod+Shift+e exec $HOME/scripts/rofi/powermenu.sh
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+J move down
+bindsym $mod+Shift+K move up
+bindsym $mod+Shift+L move right
+
+# Split in specified direction
+bindsym $mod+v split h
+bindsym $mod+Shift+V split v
+
+# Enable keybindings for notifications
+#bindsym --release Control+space exec dunstctl close
+bindsym --release Control+Delete exec dunstctl close-all
+bindsym --release Control+grave exec dunstctl history-pop
+
+# Set up screenshots and partial screenshots
+# bindsym --release Print exec maim -u ~/images/scrots/`date +%Y-%m-%d_%H:%M:%S`.png
+# bindsym --release Shift+Print exec maim -u -s ~/images/scrots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release Print exec flameshot full
+bindsym --release Shift+Print exec flameshot gui
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+z fullscreen toggle
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+Control+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+Control+p focus parent
+
+# focus the child container
+bindsym $mod+Control+c focus child
+
+# Change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Bind keys to switch to next workspace
+bindsym $mod+bracketright workspace next
+bindsym $mod+bracketleft workspace prev
+
+# for_window [class="Brave"] move to workspace $ws2
+# for_window [class="outlook"] move to workspace $ws4
+# for_window [class="Nautilus"] move to workspace $ws5
+# for_window [class="discord"] move to workspace $ws6
+# for_window [class="Slack"] move to workspace $ws8
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# reload the configuration file
+bindsym $mod+Shift+C reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+R restart
+
+# Resize window
+bindsym $mod+r mode "resize"
+mode "resize" {
+  bindsym j resize shrink width 40 px 
+  bindsym k resize grow height 40 px
+  bindsym l resize shrink height 40 px
+  bindsym m resize grow width 40 px 
+  bindsym Shift+h resize shrink width 1 px or 1
+  bindsym Shift+j resize grow height 1 px or 1
+  bindsym Shift+k resize shrink height 1 px or 1
+  bindsym Shift+l resize grow width 1 px or 1
+  bindsym Return mode "default"
+}
+
+# MVP Mode
+bindsym $mod+p mode "mvp"
+mode "mvp" {
+  bindsym p exec $music pause
+  bindsym bracketleft exec $music prev
+  bindsym bracketright exec $music next
+  bindsym semicolon exec $music seek -10
+  bindsym apostrophe exec $music seek 10
+  bindsym comma exec $music seek-percent -5
+  bindsym period exec $music seek-percent 5
+  bindsym l exec $music stop
+  bindsym o exec $music notif
+  bindsym minus exec $music vol -10
+  bindsym equal exec $music vol 10
+  bindsym Return mode "default"
+}
+
+# Audio Mode
+bindsym $mod+a mode "audio"
+mode "audio" {
+  bindsym XF86AudioRaiseVolume exec $volume inc 10
+  bindsym XF86AudioLowerVolume exec $volume dec 10
+  bindsym XF86AudioMute exec $volume mute
+  bindsym Shift+XF86AudioRaiseVolume exec $volume inc
+  bindsym Shift+XF86AudioLowerVolume exec $volume dec
+  bindsym Shift+XF86AudioMute exec $volume mute
+
+  bindsym x exec $volume inc 10
+  bindsym z exec $volume dec 10
+  bindsym Shift+x exec $volume inc
+  bindsym Shift+z exec $volume dec
+  bindsym m  exec $volume mute
+  bindsym Return mode "default"
+}
+
+# Brightness Mode
+bindsym $mod+b mode "brightness"
+mode "brightness" {
+  bindsym x exec $light inc 15
+  bindsym z exec $light dec 15
+  bindsym Shift+x exec $light inc 5
+  bindsym Shift+z exec $light dec 5
+  bindsym XF86MonBrightnessUp exec $light inc 15
+  bindsym XF86MonBrightnessDown exec $light dec 15
+  bindsym Shift+XF86MonBrightnessUp exec $light inc 5
+  bindsym Shift+XF86MonBrightnessDown exec $light dec 5
+  bindsym Return mode "default"
+}
+
+# Always float certain windows
+for_window [class="mpv"] floating enable
+for_window [class="Pavucontrol"] floating enable
+
+# Run startup wallpaper
+exec_always bash -c "feh --bg-fill $(cat $HOME/scripts/misc/default-bg.txt | head -n 1 | tr -d '\n')"
+
+# Allow scripts to interface with dbus
+exec_always --no-startup-id $HOME/scripts/misc/xdbus.sh
+
+# lock screen
+# bindsym $mod+x exec /home/$USER/.config/i3scripts/lock
+
+# Start notification daemon
+
+# Startup daemons for compositor and status bar
+exec_always --no-startup-id pkill picom; picom --no-use-damage
+# exec_always picom --experimental-backends -fb --backend glx --vsync --config /dev/null --blur-method dual_kawase
+exec_always --no-startup-id pkill dunst; dunst
+
+exec_always --no-startup-id $HOME/scripts/polybar/launch.sh
+
+exec_always --no-startup-id rm $HOME/scripts/misc/backlight-lockfile
+exec_always --no-startup-id rm $HOME/scripts/misc/volume-lockfile
+exec --no-startup-id xset r rate 250 20
+
+bindsym $mod+Control+k exec eww -c $HOME/config/eww/mpc open --toggle mpc
+
+exec_always setxkbmap us
+
+# check Monitor
+exec_always bash -c 'if [ $(xrandr | grep "connected" | wc -l) -ge 2 ]; then xrandr --output "$(xrandr | awk '\''/ connected/ {if (++count == 2) print $1}'\'')" --auto && xrandr --output "$(xrandr | awk '\''/ connected/ {if (++count == 1) print $1}'\'')" --off ; else xrandr --output eDP-1 --mode 2048x1152;fi'
+# set screen as default
+bindsym $mod+Control+d exec xrandr --output eDP-1 --mode 2048x1152
+bindsym $mod+Shift+D exec xrandr --output eDP-2 --mode 2048x1152
+
+bindsym $mod+d [class="discord"] scratchpad show
+exec_always --no-startup-id discord
+for_window[class="discord"] move to scratchpad; move position center
+
+bindsym $mod+c scratchpad show
