@@ -78,11 +78,9 @@ bindsym $mod+e layout toggle split
 bindsym $mod+bracketright workspace next
 bindsym $mod+bracketleft workspace prev
 
-# for_window [class="Brave"] move to workspace $ws2
-# for_window [class="outlook"] move to workspace $ws4
-# for_window [class="Nautilus"] move to workspace $ws5
-# for_window [class="discord"] move to workspace $ws6
-# for_window [class="Slack"] move to workspace $ws8
+for_window [class="Brave"] move to workspace $ws2
+for_window [class="outlook"] move to workspace $ws4
+for_window [class="Nautilus"] move to workspace $ws5
 
 # Switch to workspace
 bindsym $mod+1 workspace number 1
@@ -194,16 +192,14 @@ exec_always --no-startup-id $HOME/scripts/misc/xdbus.sh
 
 # Startup daemons for compositor and status bar
 exec_always --no-startup-id pkill picom; picom --no-use-damage
-# exec_always picom --experimental-backends -fb --backend glx --vsync --config /dev/null --blur-method dual_kawase
 exec_always --no-startup-id pkill dunst; dunst
-
 exec_always --no-startup-id $HOME/scripts/polybar/launch.sh
 
-exec_always --no-startup-id rm $HOME/scripts/misc/backlight-lockfile
-exec_always --no-startup-id rm $HOME/scripts/misc/volume-lockfile
+# exec_always --no-startup-id rm $HOME/scripts/misc/backlight-lockfile
+# exec_always --no-startup-id rm $HOME/scripts/misc/volume-lockfile
 exec --no-startup-id xset r rate 250 20
 
-bindsym $mod+Control+k exec eww -c $HOME/config/eww/mpc open --toggle mpc
+bindsym $mod+Control+k exec eww -c $HOME/.config/eww/mpc open --toggle mpc
 
 exec_always setxkbmap us
 

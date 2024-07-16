@@ -1,35 +1,19 @@
 spacing         = 2
 padding         = 0
 hide_ascii      = false
-#separator       = ""
-separator       = "~"
+separator       = "󰞘"
 key_color       = "Magenta"
 separator_color = "Green"
 
 
 [palette]
-#glyph = "   "
-#glyph = "   "
-#glyph = "   "
-#glyph = "   "
-glyph = "   "
-#glyph = "靖  "
-#glyph = "   "
-#glyph = "   "
-#glyph = "   "
-#glyph = "   "
-#glyph = "   "
-#glyph = "   "
-#glyph = "ﮋ   "
-#glyph = "   "
-#glyph = "   "
-
+glyph = "󰂡   "
 
 type = "Light"
 visible = true
 
 [bar]
-glyph           = ""
+glyph           = "󱃮"
 hide_delimiters = true
 visible         = true
 

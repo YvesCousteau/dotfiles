@@ -11,7 +11,7 @@
     width = 300
     # height = 260
     origin = bottom-right
-    offset = 24x24
+    offset = (24, 24)
 
 
     progress_bar = true
