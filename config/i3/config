@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # Font
-font pango:0xProto Nerd Font Mono 10
+font pango:0xProto Nerd Font Mono 12
 
 # Set common scripts to vars
 
@@ -13,8 +13,8 @@ floating_modifier $mod
 for_window [class="^.*"] border pixel 0
 
 # Change gap size
-gaps outer 5
-gaps inner 24
+gaps outer 0
+gaps inner 12
 
 # Start a fish terminal emulator instance
 # bindsym $mod+Return exec fish
@@ -170,11 +170,12 @@ mode "brightness" {
 }
 
 # Always float certain windows
-for_window [class="mpv"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="discord"] floating enable
-for_window [class="fish"] floating enable
-for_window [class="tmux"] floating enable
+# for_window [class="mpv"] floating enable
+# for_window [class="pavucontrol"] floating enable
+# for_window [class="discord"] floating enable
+# for_window [class="bash"] floating enable
+# for_window [class="outlook"] floating enable
+# for_window [class="firefox"] floating enable
 
 # Run startup wallpaper
 exec_always bash -c "feh --bg-fill $(cat $HOME/scripts/misc/default-bg.txt | head -n 1 | tr -d '\n')"
@@ -194,11 +195,9 @@ exec_always --no-startup-id pkill dunst; dunst
 
 exec_always --no-startup-id $HOME/scripts/polybar/launch.sh
 
-exec_always --no-startup-id rm $HOME/scripts/misc/backlight-lockfile
-exec_always --no-startup-id rm $HOME/scripts/misc/volume-lockfile
-exec --no-startup-id xset r rate 250 20
+exec_always --no-startup-id xrandr --mode 2048x1152
 
-bindsym $mod+Control+k exec eww -c $HOME/.config/eww/mpc open --toggle mpc
+exec --no-startup-id xset r rate 250 20
 
 exec_always setxkbmap us
 
@@ -210,14 +209,18 @@ bindsym $mod+Shift+D exec bash -c 'if [ $(xrandr | grep "connected" | wc -l) -ge
 # for_window[class="firefox"] move to scratchpad; move position center
 
 assign [class="firefox"] 1
-# assign [class="nautilus"] 1
-assign [class="bash"] 2
+assign [class="Slack"] 4
+assign [class="Terminator"] 2
 assign [class="outlook"] 3
+assign [class="discord"] 4
 
 exec_always --no-startup-id i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'
 exec_always --no-startup-id i3-msg 'workspace 3; append_layout ~/.config/i3/workspace-3.json'
+exec_always --no-startup-id i3-msg 'workspace 4; append_layout ~/.config/i3/workspace-4.json'
 exec_always --no-startup-id i3-msg 'workspace 2; append_layout ~/.config/i3/workspace-2.json'
 
 exec_always --no-startup-id pkill firefox; firefox-esr
-exec_always --no-startup-id pkill terminator; terminator -e fish
+exec_always --no-startup-id pkill slack; slack
 exec_always --no-startup-id pkill outlook; outlook-for-linux
+exec_always --no-startup-id pkill discord; discord
+exec_always --no-startup-id pkill terminator; terminator -e fish

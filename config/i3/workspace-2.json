@@ -13,7 +13,7 @@
                 {
                   "type": "con",
                   "orientation": "none",
-                  "percent": 0.5,
+                  "percent": 1.0,
                   "border": "normal",
                   "current_border_width": 2,
                   "layout": "none",
@@ -26,7 +26,7 @@
                   "floating": "auto_off",
                   "swallows": [
                       {
-                          "class": "bash"
+                          "class": "firefox"
                       }
                   ]
                 }
