@@ -10,7 +10,16 @@ font pango:0xProto Nerd Font Mono 12
 floating_modifier $mod
 
 # Turn borders off
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 8
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #141929 #ffffff #141929   #141929
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #5c94e0 #888888 #5c94e0   #5c94e0
+client.urgent           #2f343a #ed404c #ffffff #ed404c   #ed404c
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
 
 # Change gap size
 gaps outer 0
@@ -189,7 +198,7 @@ exec_always --no-startup-id $HOME/scripts/misc/xdbus.sh
 # Start notification daemon
 
 # Startup daemons for compositor and status bar
-exec_always --no-startup-id pkill picom; picom --no-use-damage
+# exec_always --no-startup-id pkill picom; picom --no-use-damage
 # exec_always picom --experimental-backends -fb --backend glx --vsync --config /dev/null --blur-method dual_kawase
 exec_always --no-startup-id pkill dunst; dunst
 
@@ -208,10 +217,10 @@ bindsym $mod+Shift+D exec bash -c 'if [ $(xrandr | grep "connected" | wc -l) -ge
 # exec_always --no-startup-id firefox-esr --kiosk https://twitch.com
 # for_window[class="firefox"] move to scratchpad; move position center
 
-assign [class="firefox"] 1
-assign [class="Slack"] 4
-assign [class="Terminator"] 2
+assign [class="Terminator"] 1
+assign [class="firefox"] 2
 assign [class="outlook"] 3
+assign [class="Slack"] 4
 assign [class="discord"] 4
 
 exec_always --no-startup-id i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'
