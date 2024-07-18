@@ -49,8 +49,6 @@ bindsym --release Control+Delete exec dunstctl close-all
 bindsym --release Control+grave exec dunstctl history-pop
 
 # Set up screenshots and partial screenshots
-# bindsym --release Print exec maim -u ~/images/scrots/`date +%Y-%m-%d_%H:%M:%S`.png
-# bindsym --release Shift+Print exec maim -u -s ~/images/scrots/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym --release Print exec flameshot full
 bindsym --release Shift+Print exec flameshot gui
 
@@ -77,10 +75,6 @@ bindsym $mod+e layout toggle split
 # Bind keys to switch to next workspace
 bindsym $mod+bracketright workspace next
 bindsym $mod+bracketleft workspace prev
-
-for_window [class="Brave"] move to workspace $ws2
-for_window [class="outlook"] move to workspace $ws4
-for_window [class="Nautilus"] move to workspace $ws5
 
 # Switch to workspace
 bindsym $mod+1 workspace number 1
@@ -178,6 +172,9 @@ mode "brightness" {
 # Always float certain windows
 for_window [class="mpv"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="discord"] floating enable
+for_window [class="fish"] floating enable
+for_window [class="tmux"] floating enable
 
 # Run startup wallpaper
 exec_always bash -c "feh --bg-fill $(cat $HOME/scripts/misc/default-bg.txt | head -n 1 | tr -d '\n')"
@@ -192,11 +189,13 @@ exec_always --no-startup-id $HOME/scripts/misc/xdbus.sh
 
 # Startup daemons for compositor and status bar
 exec_always --no-startup-id pkill picom; picom --no-use-damage
+# exec_always picom --experimental-backends -fb --backend glx --vsync --config /dev/null --blur-method dual_kawase
 exec_always --no-startup-id pkill dunst; dunst
+
 exec_always --no-startup-id $HOME/scripts/polybar/launch.sh
 
-# exec_always --no-startup-id rm $HOME/scripts/misc/backlight-lockfile
-# exec_always --no-startup-id rm $HOME/scripts/misc/volume-lockfile
+exec_always --no-startup-id rm $HOME/scripts/misc/backlight-lockfile
+exec_always --no-startup-id rm $HOME/scripts/misc/volume-lockfile
 exec --no-startup-id xset r rate 250 20
 
 bindsym $mod+Control+k exec eww -c $HOME/.config/eww/mpc open --toggle mpc
@@ -204,13 +203,21 @@ bindsym $mod+Control+k exec eww -c $HOME/.config/eww/mpc open --toggle mpc
 exec_always setxkbmap us
 
 # check Monitor
-exec_always bash -c 'if [ $(xrandr | grep "connected" | wc -l) -ge 2 ]; then xrandr --output "$(xrandr | awk '\''/ connected/ {if (++count == 2) print $1}'\'')" --auto && xrandr --output "$(xrandr | awk '\''/ connected/ {if (++count == 1) print $1}'\'')" --off ; else xrandr --output eDP-1 --mode 2048x1152;fi'
-# set screen as default
-bindsym $mod+Control+d exec xrandr --output eDP-1 --mode 2048x1152
-bindsym $mod+Shift+D exec xrandr --output eDP-2 --mode 2048x1152
+bindsym $mod+Shift+D exec bash -c 'if [ $(xrandr | grep "connected" | wc -l) -ge 2 ]; then xrandr --output "$(xrandr | awk '\''/ connected/ {if (++count == 2) print $1}'\'')" --auto && xrandr --output "$(xrandr | awk '\''/ connected/ {if (++count == 1) print $1}'\'')" --off ;fi'
 
-bindsym $mod+d [class="discord"] scratchpad show
-exec_always --no-startup-id discord
-for_window[class="discord"] move to scratchpad; move position center
+# bindsym $mod+d [class="firefox"] scratchpad show
+# exec_always --no-startup-id firefox-esr --kiosk https://twitch.com
+# for_window[class="firefox"] move to scratchpad; move position center
 
-bindsym $mod+c scratchpad show
+assign [class="firefox"] 1
+# assign [class="nautilus"] 1
+assign [class="bash"] 2
+assign [class="outlook"] 3
+
+exec_always --no-startup-id i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'
+exec_always --no-startup-id i3-msg 'workspace 3; append_layout ~/.config/i3/workspace-3.json'
+exec_always --no-startup-id i3-msg 'workspace 2; append_layout ~/.config/i3/workspace-2.json'
+
+exec_always --no-startup-id pkill firefox; firefox-esr
+exec_always --no-startup-id pkill terminator; terminator -e fish
+exec_always --no-startup-id pkill outlook; outlook-for-linux

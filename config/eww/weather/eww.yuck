@@ -1,0 +1,10 @@
+(defwindow welcome
+  :stacking "fg"
+  :monitor 0
+  :geometry (geometry :x "50%" :y "50%" :anchor "center" :width "600px" :height "400px")
+  (box
+    :orientation "vertical"
+    :spacing "10px"
+    (label :text "Welcome to i3 Window Manager" :halign "center")
+    (label :text "Here are some tips to get started..." :halign "center")
+    (button :text "Close" :onclick "eww close welcome")))

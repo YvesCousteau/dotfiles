@@ -1,0 +1,37 @@
+[
+    {
+        "type": "con",
+        "orientation": "horizontal",
+        "percent": 1.0,
+        "border": "normal",
+        "current_border_width": 2,
+        "layout": "splith",
+        "workspace_layout": "default",
+        "floating_nodes": [],
+        "nodes": [
+            {
+                {
+                  "type": "con",
+                  "orientation": "none",
+                  "percent": 0.5,
+                  "border": "normal",
+                  "current_border_width": 2,
+                  "layout": "none",
+                  "workspace_layout": "default",
+                  "floating_nodes": [],
+                  "nodes": [],
+                  "focus": [],
+                  "fullscreen_mode": 0,
+                  "sticky": false,
+                  "floating": "auto_off",
+                  "swallows": [
+                      {
+                          "class": "outlook"
+                      }
+                  ]
+                }
+            }
+        ],
+        "focus": []
+    }
+]
