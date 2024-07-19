@@ -6,19 +6,19 @@
 :root {
 	--bg: #141929;
 	
-	--red: #e46368;
-	--green: #65d67d;
-	--yellow: #f2c075;
-	--blue: #a8b0d5;
-	--magenta: #c687ef;
-	--cyan: #72abfb;
-	--fg: #d3d6db;
-	--grey: #383f47;
+	--red: #F66C51;
+	--green: #95D473;
+	--yellow: #FFEE94;
+	--blue: #76A4E5;
+	--magenta: #D295F6;
+	--cyan: #7EBDC2;
+	--fg: #D4DFED;
+	--grey: #68818D;
 
-	--primary: #d3d6db;
-	--primary-alt: #a8b0d5;
-	--secondary: #fb7a7f;
-	--secondary-alt: #df5e63;
+	--primary: #D4DFED;
+	--primary-alt: #68818D;
+	--secondary: #F66C51;
+	--secondary-alt: #FE9D5D;
 
 	--prim-gradient: linear-gradient(90deg, var(--primary), var(--primary-alt));
 	--secondary-gradient: linear-gradient(90deg, var(--secondary), var(--secondary-alt));
