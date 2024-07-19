@@ -1,0 +1,16 @@
+{
+  "pride": {
+    "bg": "#141929"
+    "shadow": "#68818D",
+    "fg": "#D4DFED",
+    "red": "#F66C51",
+    "orange": "#FE9D5D",
+    "yellow": "#FFEE94"
+    "pink": "#FF85A1",
+    "magenta": "##D295F6",
+    "purple": "#BF48EA",
+    "blue": "#76A4E5",
+    "cyan": "#7EBDC2",
+    "green": "#95D473",
+  }
+}
