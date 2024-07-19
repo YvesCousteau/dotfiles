@@ -18,13 +18,13 @@ M.ui = {
         base05 = "#D4DFED",
         base06 = "#0000FF",
         base07 = "#BF48EA",
-        base08 = "#D4DFED",
-        base09 = "#95D473",
+        base08 = "#FF85A1",
+        base09 = "#eb5e28",
         base0A = "#FE9D5D",
-        base0B = "#FF85A1",
+        base0B = "#e07a5f",
         base0C = "#7EBDC2",
         base0D = "#FFEE93",
-        base0E = "#D295F6",
+        base0E = "#F66C51",
         base0F = "#76A4E5",
       },
       base_30 = {
@@ -34,8 +34,8 @@ M.ui = {
         black2 = "#141929",
         one_bg = "#D4DFED", -- real bg of onedark
         one_bg2 = "#00FFFF",
-        one_bg3 = "#D295F6",
-        grey = "#FF85A1",
+        one_bg3 = "#FE9D5D",
+        grey = "#eb5e28",
         grey_fg = "#68818D",
         grey_fg2 = "#6e6f79",
         light_grey = "#D4DFED",
@@ -65,6 +65,7 @@ M.ui = {
 
 	hl_override = {
 	   Visual = { fg = "#141929", bg = "#D4DFED" },
+	   CursorLineNr = { fg = "#FFEE93", bold = true },
 	},
 }
 
