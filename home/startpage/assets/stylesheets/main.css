@@ -7,8 +7,9 @@
 	--bg: #141929;
 	
 	--red: #F66C51;
-	--green: #95D473;
+  --orange: #FE9D5D;
 	--yellow: #FFEE94;
+	--green: #95D473;
 	--blue: #76A4E5;
 	--magenta: #D295F6;
 	--cyan: #7EBDC2;
@@ -16,9 +17,9 @@
 	--grey: #68818D;
 
 	--primary: #D4DFED;
-	--primary-alt: #68818D;
+	--primary-alt: #D4DFED;
 	--secondary: #F66C51;
-	--secondary-alt: #FE9D5D;
+	--secondary-alt: #F66C51;
 
 	--prim-gradient: linear-gradient(90deg, var(--primary), var(--primary-alt));
 	--secondary-gradient: linear-gradient(90deg, var(--secondary), var(--secondary-alt));
@@ -72,19 +73,19 @@ h2 {
 }
 
 #hour {
-	color: var(--magenta);
-}
-
-#time #minute {
 	color: var(--red);
 }
 
+#time #minute {
+	color: var(--orange);
+}
+
 #time.hidden #minute {
-	color: var(--primary);
+	color: var(--orange);
 }
 
 #second {
-	color: var(--primary);
+	color: var(--yellow);
 }
 
 #sites {
