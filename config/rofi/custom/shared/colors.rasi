@@ -16,10 +16,10 @@
 /* Import color-scheme from `colors` directory */
 
 * {
-    background:     #1f243a;
-    background-alt: #fe6c5a;
-    foreground:     #F2F1B9FF;
-    selected:       #44B5B1FF;
-    active:         #7CBF9EFF;
-    urgent:         #C2454EFF;
+    background:     #D4DfEd;
+    background-alt: #eb5e28;
+    foreground:     #141929;
+    selected:       #141929;
+    active:         #FFEE94;
+    urgent:         #FF85A1;
 }

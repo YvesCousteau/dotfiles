@@ -24,22 +24,22 @@ USE_BUTTONS=YES
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    north;
+    location:                    center;
     anchor:                      north;
     fullscreen:                  false;
     width:                       530px;
     x-offset:                    0px;
-    y-offset:                    20px;
+    y-offset:                    0px;
 
     /* properties for all widgets */
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      0px solid;
+    border:                      10px solid;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @background;
     cursor:                      "default";
-    background-color:            transparent;
+    background-color:            @background;
 }
 
 /*****----- Main Box -----*****/
@@ -96,7 +96,7 @@ message {
     margin:                      0px;
     padding:                     15px;
     border:                      0px solid;
-    border-radius:               15px;
+    border-radius:               0px;
     border-color:                @selected;
     background-color:            @background-alt;
     text-color:                  @foreground;
@@ -150,7 +150,7 @@ element {
     margin:                      0px;
     padding:                     25px 10px;
     border:                      0px solid;
-    border-radius:               20px;
+    border-radius:               0px;
     border-color:                @selected;
     background-color:            @background-alt;
     text-color:                  @foreground;

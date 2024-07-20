@@ -59,7 +59,7 @@ inputbar {
     margin:                      0px 500px 0px 0px;
     padding:                     12px;
     border:                      0px 0px 0px 4px;
-    border-radius:               0px 100% 100% 0px;
+    border-radius:               0px 0% 0% 0px;
     border-color:                @selected;
     background-color:            @background-alt;
     text-color:                  @foreground;
