@@ -278,3 +278,31 @@ scrollbar thumb:hover {
   height: 19px !important;
   min-height: 19px !important;
 }
+
+#contentAreaContextMenu {
+    background-color: var(--bg) !important;
+    color: var(--fg) !important;
+    border: none !important;
+    border-radius: 0px !important; /* Optional: round the corners */
+    border: none !important;
+    outline: none !important;
+    -moz-appearance: none !important;
+    box-shadow: none !important;
+}
+
+menuitem {
+    background-color: var(--bg) !important;
+    color: var(--fg) !important;
+    border-radius: 0px !important; /* Optional: round the corners */
+    border: none !important;
+}
+
+menuseparator {
+    display: none !important;
+}
+
+.menupopup-arrowscrollbox {
+    background-color: var(--bg) !important;
+    outline: none !important;
+    border: none !important;
+}
