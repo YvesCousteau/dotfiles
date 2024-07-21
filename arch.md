@@ -156,6 +156,13 @@ Create the hostname file `/etc/hostname`:
 ```
 ${hostname}
 ```
+### Grub
+Check where EFI is mounted (`/boot` is expecting) in `/etc/fstab`.\
+Reinstall and reconfigure GRUB:
+```
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+```
 ### Initramfs
 Creating a new initramfs is usually not required, because mkinitcpio was run on installation of the kernel package with pacstrap.
 For LVM, system encryption or RAID, modify `mkinitcpio.conf` and recreate the initramfs image:
@@ -163,11 +170,6 @@ For LVM, system encryption or RAID, modify `mkinitcpio.conf` and recreate the in
 mkinitcpio -P
 ```
 The initramfs is a complete set of directories that you would find on a normal root filesystem.
-### Root password
-Set the root password:
-```
-passwd
-```
 ## Reboot 
 ```
 exit && reboot
